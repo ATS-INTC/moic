@@ -2,3 +2,6 @@
 	path = qemu
 	url = https://github.com/ATS-INTC/qemu.git
 	branch = moic
+[submodule "moic_driver"]
+	path = moic_driver
+	url = https://github.com/ATS-INTC/moic_driver.git
