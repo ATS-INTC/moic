@@ -1,5 +1,17 @@
 # 在 QEMU 中实现 MOIC 中断控制器的开发日志
 
+## 20240608
+
+- 增加注册 IPC 发送方、接收方的处理逻辑
+- 测试注册 IPC 发送方、接收方的处理逻辑
+- 
+
+## 20240607
+
+- 增加优先级队列实现
+- 测试优先级队列读写接口
+- 增加注册外部中断的处理逻辑
+
 ## 20240606
 
 - 将 virtio 设备的中断连接到 moic_irqchip 上
@@ -7,7 +19,9 @@
   - 在 riscv_moic.c 文件中初始化 external_irq_count，并且将 external_irqs 字段初始化，并连接到 riscv_moic_irq_request 处理函数
   - 在 hw/riscv/virt.c 文件中，用总线将 moic_irqchip 连接到 virtio 设备的中断上
 - 测试读写和中断处理函数
-  - 
+  - 写了 riscv_entry 宏，方便后续写裸机测试启动
+  - 测试了读写端口
+  - 测试中断接口，能够正常进入处理函数
 
 ## 20240605
 
