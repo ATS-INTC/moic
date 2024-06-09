@@ -1,10 +1,26 @@
 # 在 QEMU 中实现 MOIC 中断控制器的开发日志
 
+## 20240609
+
+- 设置 riscv-virt 的默认 CPU 类型为实现了 N 扩展的 CPU：TYPE_RISCV_CPU_RV64GCSU_N
+  - 在 hw/riscv/virt.c 中的 virt_machine_class_init 初始化函数将 mc->default_cpu_type = TYPE_RISCV_CPU_RV64GCSU_N
+  - 在 target/riscv/cpu-qom.h 中增加 TYPE_RISCV_CPU_RV64GCSU_N 类型
+  - 在 target/riscv/cpu.c 文件中，增加 rv64gcsu_n_cpu_init 初始化函数，与 rv64_base_cpu_init 初始化相同，但 misa_ext 增加了 N 扩展
+  - 在 target/riscv/cpu.c 文件中，将 TYPE_RISCV_CPU_RV64GCSU_N 与 rv64gcsu_n_cpu_init 关联起来
+  - 在 target/riscv/cpu.h 文件中增加了 RVN 的扩展
+- CPU 初始化时使能 N 扩展
+  - 在 target/riscv/cpu_cfg.h 中的 RISCVCPUConfig 增加了 bool ext_n
+  - 在 target/riscv/cpu.c 中的 rv64gcsu_n_cpu_init 函数使能 ext_n
+- 增加与 N 扩展相关的寄存器以及操作
+  - 在 target/riscv/cpu.h 的 CPUArchState 中增加 user CSRs, sedeleg、sideleg CSR
+  - 在 target/riscv/cpu_bits.h 中增加 SEDELEG、SIDELEG、USTATUS_UIE、USTATUS_UPIE、U_MODE_INTERRUPTS 的定义
+  - 在 target/riscv/csr.c 中增加与 n 扩展寄存器相关的读写操作
+- 在 target/riscv/cpu.c 文件中的 riscv_cpu_dump_state 函数增加与 N 扩展相关的 CSR
+
 ## 20240608
 
 - 增加注册 IPC 发送方、接收方的处理逻辑
 - 测试注册 IPC 发送方、接收方的处理逻辑
-- 
 
 ## 20240607
 
