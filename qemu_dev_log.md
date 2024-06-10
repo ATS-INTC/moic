@@ -1,5 +1,12 @@
 # 在 QEMU 中实现 MOIC 中断控制器的开发日志
 
+## 20240610
+
+- 测试读写 N 扩展相关的寄存器
+  - 使用 HKP 写的 riscv 库读写寄存器时，出现了指令非对齐错误（misaligned_fetch）
+  - qemu 中定义的没有异常的返回值不为 0，返回值填写错误
+  - ustatus、utvec、uscratch、uepc、ucause、utval、sedeleg、sideleg、uip、uie（存在问题，set_usoft 出错，需要增加 LOCAL_INTERRUPTS）
+
 ## 20240609
 
 - 设置 riscv-virt 的默认 CPU 类型为实现了 N 扩展的 CPU：TYPE_RISCV_CPU_RV64GCSU_N
