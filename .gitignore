@@ -1,3 +1,4 @@
 qemu_build/*
 .vscode/*
 dump.cap
+qemu.log
