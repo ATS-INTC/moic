@@ -1,5 +1,11 @@
 # 在 QEMU 中实现 MOIC 中断控制器的开发日志
 
+## 20240612
+
+- 实现 MOIC 的相关逻辑
+  - switch 接口访问内存，与内存进行信息交互，调用 include/exec/cpu-common.h 文件中定义的 cpu_physical_memory_read、cpu_physical_memory_write 接口
+  - 与内存之间的信息交互正确，但可能是由于 rust 的所有权机制，导致空间会被提前释放，需要增加打印语句才能现实正常的信息，改成了 static 生命周期之后，不需要打印语句也能正常工作
+
 ## 20240611
 
 - 测试用户态中断的触发逻辑（目前不支持用户态时钟中断）
