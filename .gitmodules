@@ -9,3 +9,6 @@
 	path = arceos-ats-intc
 	url = https://github.com/ATS-INTC/arceos-ats-intc.git
 	branch = moic
+[submodule "moicos"]
+	path = moicos
+	url = https://github.com/ATS-INTC/moicos.git
