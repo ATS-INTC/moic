@@ -12,3 +12,6 @@
 [submodule "moicos"]
 	path = moicos
 	url = https://github.com/ATS-INTC/moicos.git
+[submodule "Starry"]
+	path = Starry
+	url = https://github.com/ATS-INTC/Starry.git
