@@ -3,6 +3,11 @@
 ## 20240626
 
 - 写改造方案
+- 使用 `kbuild patch add scheduler` 将 `scheduler` 拉取到本地，在其中添加 moic 调度器
+- 使用 `kbuild patch add axfeat` 将 `axfeat` 拉取到本地，在 `axtask`、`axfeat`、`axstarry` 中增加 `sched_moic` feature，并修改依赖为本地仓库
+- 增加 `riscv64-qemu-virt-moic` 平台
+- 使用 `make A=apps/monolithic_userboot PLATFORM=riscv64-qemu-virt-moic SMP=4 FEATURES=img,sched_moic LOG=debug run` 运行系统，出现错误，因为没有调用 MoicScheduler 的 init 函数（实质是没有调用 switch_os 函数），直接调用 Add 函数，因此 qemu 出现了段错误。
+- 在第一次 add 是调用了调度器的 init 函数后，可以成功添加任务，但由于 4 个处理器核使用了不同的调度器（starry 在软件上提供了负载均衡），因为未知的原因，导致没有从控制器中取出任务。
 
 ## 20240625
 
