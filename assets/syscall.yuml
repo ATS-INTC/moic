@@ -1,0 +1,23 @@
+
+// {type: sequence}
+// {generate: true}
+
+[kernel] 1.register syscall handler > [atsintc]
+[atsintc] 2.IPC blocked queue of kernel enqueue > [atsintc]
+[user process] 3.syscall task write shared memory > [shared memory]
+[user process] 4.syscall task write MMIO register > [atsintc]
+[atsintc] 5.IPC blocked queue of process enqueue > [atsintc]
+[atsintc] 6.IPC blocked queue of kernel dequeue > [atsintc]
+[atsintc] 7.kernel priority queue enqueue > [atsintc]
+[kernel] 8.fetch task > [atsintc]
+[atsintc] 9.kernel priority queue dequeue > [atsintc]
+[atsintc] 10.return the syscall handler > [kernel]
+[kernel] 11.read syscall arguments from shared memory > [shared memory]
+[kernel] 12.deal with syscall > [kernel]
+[kernel] 13.kernel syscall write MMIO register > [atsintc]
+[atsintc] 14.IPC blocked queue of process dequeue > [atsintc]
+[atsintc] 15.process priority queue enqueue > [atsintc]
+[user process] 16.fetch task > [atsintc]
+[atsintc] 17.return the blocked syscall task > [user process]
+
+
