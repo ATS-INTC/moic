@@ -11,3 +11,6 @@
 [submodule "Starry"]
 	path = Starry
 	url = https://github.com/ATS-INTC/Starry.git
+[submodule "unified-task"]
+	path = unified-task
+	url = https://github.com/ATS-INTC/unified-task.git
