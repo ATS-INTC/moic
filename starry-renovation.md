@@ -1,7 +1,7 @@
 # 在 starry 中使用控制器的改造方案
 
 ## 历史版本
-1. [1](https://github.com/ATS-INTC/moic/blob/5609c8e8a35b7096c7ac53368690cef8390c8e6a/starry-renovation.md)
+1. [第一版](https://github.com/ATS-INTC/moic/blob/5609c8e8a35b7096c7ac53368690cef8390c8e6a/starry-renovation.md)
 
 ### 20240627向勇的修改意见
 
