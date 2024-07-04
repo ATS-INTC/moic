@@ -2,7 +2,7 @@
 // {type: sequence}
 // {generate: true}
 
-[kernel] 1.register syscall handler > [atsintc]
+[kernel] 1.asynchronous syscall init > [atsintc]
 [atsintc] 2.IPC blocked queue of kernel enqueue > [atsintc]
 [user process] 3.syscall task write shared memory > [shared memory]
 [user process] 4.syscall task write MMIO register > [atsintc]
