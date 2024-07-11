@@ -14,3 +14,7 @@
 [submodule "unified-task"]
 	path = unified-task
 	url = https://github.com/ATS-INTC/unified-task.git
+[submodule "AsyncStarry"]
+	path = AsyncStarry
+	url = https://github.com/zflcs/AsyncStarry.git
+	branch = dev
