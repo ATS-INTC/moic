@@ -5,17 +5,5 @@
 [submodule "moic_driver"]
 	path = moic_driver
 	url = https://github.com/ATS-INTC/moic_driver.git
-[submodule "moicos"]
-	path = moicos
-	url = https://github.com/ATS-INTC/moicos.git
-[submodule "Starry"]
-	path = Starry
-	url = https://github.com/ATS-INTC/Starry.git
-[submodule "unified-task"]
-	path = unified-task
-	url = https://github.com/ATS-INTC/unified-task.git
-[submodule "AsyncStarry"]
-	path = AsyncStarry
-	url = https://github.com/zflcs/AsyncStarry.git
-	branch = dev
+
 
