@@ -9,3 +9,6 @@
 	path = AsyncStarry
 	url = https://github.com/AsyncModules/AsyncStarry.git
 	branch = async
+[submodule "async-os"]
+	path = async-os
+	url = https://github.com/AsyncModules/async-os.git
